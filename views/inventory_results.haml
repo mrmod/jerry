@@ -1,0 +1,42 @@
+- if @inventory.kind_of?Hash
+  / refactor these stanzas
+  %h2= @inventory[:node][:sender]
+  / collectives, main_collective is primary
+  %div{:class => "row"}
+    %li{:class => "secondary label"} collectives
+  %div{:class => "row"}
+    - @inventory[:node][:data][:collectives].sort.each do |c|
+      - if c == @inventory[:node][:data][:main_collective]
+        %li{:class => "primary label"}=c
+      - else
+        %li{:class => "light label"}=c
+
+  %br
+  / puppet classes
+  %div{:class => "row"}
+    %li{:class => "secondary label"} puppet classes
+  %div{:class => "row"}
+    - if @inventory[:node][:data][:classes].empty?
+      %li{:class => "light label"} no classes
+    - else
+      - @inventory[:node][:data][:classes].sort.each do |c|
+        %li{:class => "light label"}= c
+  %br
+  / agents
+  %div{:class =>"row"}
+    %li{:class => "secondary label"} agents
+  %div{:class => "row"}
+    - @inventory[:node][:data][:agents].sort.each do |c|
+      %li{:class => "light label"}= c
+
+  / data plugins
+  - if @inventory[:node][:data].has_key?(:data_plugins)
+    %div{:class => "row"}
+      %li{:class => "secondary label"} data sources
+    %div{:class => "row"}
+      - @inventory[:node][:data][:data_plugins].sort.each do |c|
+        %li{:class => "light label"}=c
+
+- else
+  %div{:class => "six columns"}
+    %h2 No details found

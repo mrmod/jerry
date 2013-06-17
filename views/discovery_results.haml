@@ -1,0 +1,34 @@
+- if @node_count == 0
+  %div{:class => "row"}
+    %h2= "No nodes found"
+- else
+  %div{:class => "rows"}
+    %h2= "Found #{@node_count} nodes"
+  %div{:class => "row"}
+    - @nodes.each do |node, rtime|
+      - color_class = 'warning' if rtime >= 20.0
+      - color_class = 'secondary' if rtime < 20.0
+      %div{:class => "row"}
+        %div{:class => "eight columns"}
+          %li{:class => "#{color_class} badge"}
+            ="#{"%.2f" % rtime} ms"
+      %div{:class => "row"}
+        %div{:class => "eight columns"}
+          =node
+          %span{:class => "primary label btn"}
+            %a{:href => "/run/#{@collective}/#{node}"} run
+  %div{:class => "row"}
+    %hr{:class => "eight columns"}
+  %div{:class => "row"}
+    %div{:class => "two columns"}
+    %div{:class => "two columns"} max
+    %div{:class => "two columns"} min
+    %div{:class => "two columns"} average
+  %div{:class => "row"}
+    %div{:class => "two columns"}
+    %div{:class => "two columns"}
+      %h6= "#{"%.2f" % @statistics[:max]}"
+    %div{:class => "two columns"}
+      %h6= "#{"%.2f" % @statistics[:min]}"
+    %div{:class => "two columns"}
+      %h6= "#{"%.2f" % @statistics[:average]}"

@@ -1,0 +1,24 @@
+%div{:class => "row"}
+  %div{:class => "two columns"}
+  %div{:class => "six columns"}
+    %div{:class => "row"}
+      %ul{:class => "twelve columns"}
+        %li{:class => "append field"}
+          %form{:name => "node_add", :id => "node_add", :action => "/authorize", :method => "post"}
+            %input{:class => "search input", :placeholder => "Node to add", :name => "node"}
+            %span{:class => "narrow primary btn adjoined"}
+              %input{:type => "submit", :value => "add", :class => "primary btn"}    
+
+  %div{:class => "six columns"}
+    %div{:class => "row"}
+      %ul{:class => "thirteen columns"}
+        %li{:class => "append field"}
+          %form{:name => "node_find", :id => "node_find", :action => "/authorize", :method => "post"}
+            %input{:class => "search input", :placeholder => "Node to find", :name => "node"}
+            %span{:class => "narrow primary adjoined btn"}
+              %input{:type => "submit", :value => "find", :class => "primary btn"}
+    %div{:class => "row"}
+      - @authorized_nodes.each do |node|
+        %div{:class => "row"}
+          %a{:title => "#{node}", :href => "/authorize/#{node}"}=node
+  %div{:class => "two columns"}

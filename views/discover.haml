@@ -1,0 +1,14 @@
+%div{:class => "row"}
+  %div{:class => "eight columns"}
+    %div{:class => "row"}
+      %ul{:class => "eight columns"}
+        %li{:class => "append field"}
+          %form{:name => "discover-nodes", :id => "discover-nodes", :remote => true, :action => "/discover/results", :method => "post"}
+            %input{:class => "search input", :placeholder => "collective", :name => "collective"}
+            %span{:class => "metro normal adjoined primary btn", :name => 'discover-submit', :id => 'discover-submit'} find
+    %div{:class => "row"}
+      %div{:class => "eight columns", :id => 'run-results'}
+             
+  %div{:class => "eight columns", :id => "view-results"}
+    %img{:id => 'spinner',:hidden => true, :src => '/img/spinner.gif'}
+

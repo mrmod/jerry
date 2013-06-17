@@ -1,0 +1,11 @@
+%div{:class => "row"}
+  %div{:class => "sixteen columns"}
+    %h2="#{@node_run.responsesfrom.size} nodes with #{@node_run.failcount} failures in #{"%.2f" % (@node_run.totaltime * 1000)}ms"
+%div{:class => "row"}
+  %div{:class => "sixteen columns"}
+    Responding nodes
+    - @node_run.responsesfrom.each do |node|
+      %li{:class => "light label"}= node
+
+
+

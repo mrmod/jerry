@@ -1,0 +1,61 @@
+Summary: <%= @plugin.metadata[:description] %>
+Name: <%= @current_package_name%>
+Version: <%= @plugin.metadata[:version] %>
+Release: <%= @plugin.iteration %>
+License: <%= @plugin.metadata[:license] %>
+URL: <%= @plugin.metadata[:url] %>
+Vendor: <%= @plugin.vendor %>
+Packager: <%= @plugin.metadata[:author] %>
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildArch: noarch
+Group: System Tools
+Source0: <%= "#{@current_package_name}-#{@plugin.metadata[:version]}.tgz" %>
+<% @current_package_data[:dependencies].each do |dep|-%>
+Requires: <%= dep[:name] -%> <%= ">= #{dep[:version]}" if dep[:version]%><%="-#{dep[:iteration]}" if dep[:iteration]%>
+<% end -%>
+<% if @current_package_data[:plugindependency] %>
+Requires: <%= @current_package_data[:plugindependency][:name] -%> = <%= @current_package_data[:plugindependency][:version]%>-<%= @current_package_data[:plugindependency][:iteration]%>
+<% end %>
+
+%description
+<%= @plugin.metadata[:description] %>
+
+%prep
+%setup
+
+%build
+
+%install
+<% @dirs = [] -%>
+<% @package_files = [] -%>
+<% @current_package_data[:files].each do |file| -%>
+<% @dirs << File.dirname(File.join(@libdir, File.expand_path(file).gsub(/#{File.expand_path(plugin.path)}|\.\//, ''))) -%>
+<% @package_files << File.join(@libdir, File.expand_path(file).gsub(/#{File.expand_path(plugin.path)}|\.\//, '')) -%>
+<% end -%>
+rm -rf %{buildroot}
+<% @dirs.uniq.each do |dir| -%>
+%{__install} -d -m0755 %{buildroot}<%= dir%>
+<% end -%>
+<% @package_files -=  @dirs %>
+<% @package_files.each do |package_file| -%>
+%{__install} -m0644 <%= (package_file[0].chr == '/') ? package_file[1..package_file.size-1]: package_file%> %{buildroot}<%=package_file %>
+<% end -%>
+
+%files
+%defattr(-,root,root,-)
+<% @package_files.each do |file| -%>
+<%= file %>
+<% end -%>
+
+<% if @plugin.preinstall -%>
+%pre
+<%= @plugin.preinstall %>
+<% end -%>
+<% if @plugin.postinstall -%>
+%post
+<%= @plugin.postinstall%>
+<% end -%>
+
+%changelog
+* <%= Time.now.strftime("%a %b %d %Y") -%> <%= @plugin.metadata[:author]%> - <%= @plugin.metadata[:version]%>-<%= @plugin.iteration%>
+- Built Package <%= @current_package_name-%>

@@ -1,0 +1,13 @@
+/ Header of the layout
+%link{:rel => "stylesheet",  :href => "/css/gumby.css"}
+%div{:class => "row navbar"}
+  %div{:class => "two columns"}
+  %div{:class => "fourteen columns"}
+    %ul
+      %li
+        %a{:title => "Start", :href => "/"} Start
+      - ['Authorize','Discover','Inventory'].each do |title|
+        %li
+          %a{:title => title, :href => "/#{title.downcase}"}= title
+
+        
