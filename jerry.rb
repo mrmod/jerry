@@ -1,6 +1,9 @@
 require 'rubygems'
-require 'haml'
 require 'sinatra/base'
+require 'sinatra/config_file'
+require 'haml'
+
+# RacecarDriver
 require 'couchrest'
 require 'mcollective'
 require 'logger'
@@ -110,18 +113,21 @@ end
 
 
 # Strong as any man alive
+# Config file is by default jerry.yaml in the same dir as jerry.rb
 class Jerry < Sinatra::Base
+  register Sinatra::ConfigFile
+  config_file(File.join(File.dirname(__FILE__), 'jerry.yaml'))
+  set :haml, :format => :html5
+  set :port => settings.port
 
-  DEFAULT_OPTIONS = ['--dt','5','-t' ,'5', ]
-  DEFAULT_COLLECTIVE = 'mcollective'
-
-	set :haml, :format => :html5
-  
+  DEFAULT_OPTIONS = ['--dt',settings.mco_settings['discover_time'], '-t' , settings.mco_settings['timeout']]
+  DEFAULT_COLLECTIVE = settings.collective
+ 
   before do 
-    @racecar = RacecarDriver.new('http://localhost:5984/whitelist')
-    @mco_config = File.join(File.dirname(File.expand_path(__FILE__)),'mcollective','client.cfg')
-    @logger = Logger.new(File.join(File.dirname(File.expand_path(__FILE__)),'sinatra.log'))
-    @logger.level = Logger::DEBUG
+    @racecar = RacecarDriver.new(settings.whitelist)
+    @mco_config = settings.mco_config
+    @logger = Logger.new(settings.logfile)
+    @logger.level = settings.log_level
   end
 
   helpers do
@@ -145,6 +151,8 @@ class Jerry < Sinatra::Base
     end
     # Get node details
     # @param [String] node Node FQDN
+    # @param [String] collective
+    # @param [Array] opts Options array
     def node_details(node, collective = DEFAULT_COLLECTIVE, opts = DEFAULT_OPTIONS.dup)
       @logger.debug("Getting node details for #{node} in #{collective}, opts: #{opts.inspect}")
       @racecar.node_details(node,@mco_config, collective, opts)
@@ -152,26 +160,27 @@ class Jerry < Sinatra::Base
 
     # Run a node using the puppetd agent
     # @param [String] node Node fqdn
+    # @param [String] collective
+    # @param [Array] opts Options array
     def run_node(node, collective = DEFAULT_COLLECTIVE, opts = DEFAULT_OPTIONS.dup)
       @logger.debug("Starting run for #{node}")
       @racecar.run_node(node,@mco_config,collective,opts)
     end
 
   end
-
-
 	# Here.I.Am
 	get '/' do
 		@choices = ['Authorize','Discover','Inventory', 'Run']
 		haml :index
 	end
 
-	# Authorize a host to be in the environment
+	# Authorize index
   get '/authorize' do
   	@authorized_nodes = @racecar.authorized_nodes
   	haml :authorize
   end
 
+  # Authorized nodes list
   get '/authorize/nodes' do
     @authorized_nodes = @racecar.authorized_nodes
     @logger.debug("Displaying #{@authorized_nodes.inspect} ")
@@ -179,11 +188,10 @@ class Jerry < Sinatra::Base
     haml :authorize_results, :layout => false
   end
 
-  # Filter the list down to just the node and show the serial for the cert
+  # Authorize a given node
   post '/authorize' do
     node = params[:node]
     @logger.debug("Authorizing #{node}")
-
     begin 
       @racecar.add_node(node)
     rescue RestClient::Conflict => e
@@ -200,7 +208,8 @@ class Jerry < Sinatra::Base
     haml :authorize_results, :layout => false
   end
 
-  # Bad verb usage. Should clean up at some point
+  # Delete an authorized node
+  # @todo Delete verb?
   post '/authorize/delete/:node' do
     @logger.debug("Deleting #{params[:node]}")
     @racecar.delete_node(params[:node])
@@ -208,38 +217,44 @@ class Jerry < Sinatra::Base
     haml :authorize_results, :layout => false
   end
 
+  # Discover index
+  get '/discover' do
+    haml :discover
+  end
+
+  # Discover results
   post '/discover/results' do
     @logger.debug("Calling discover_nodes with #{params[:collective]}")
-    puts "xhr: #{request.xhr?}"
     discover_nodes(params[:collective])
     haml :discovery_results, :layout => false
   end
+
   # Discover nodes that are in the collective
   get '/discover/results' do
     discover_nodes
     haml :discovery_results, :layout => false
   end
-  # Discover layout
-  get '/discover' do
-  	haml :discover
-  end
+  
 
-  # Inventory of any running node in the collective
+  # Inventory index
   get '/inventory' do
   	@inventory = "Inventory"
   	haml :inventory
   end
 
+  # Inventory a node
   post '/inventory' do
     @inventory = node_details(params[:node])
     @logger.debug("Model provided: #{@inventory.inspect}")
     haml :inventory_results, :layout => false
   end
 
+  # Run index
   get '/run' do
     haml :run
   end
 
+  # Run and report back
   post '/run' do
     @node = params[:node]
     @collective = params[:collective]
@@ -248,6 +263,7 @@ class Jerry < Sinatra::Base
     haml :run_results, :layout => false
   end
 
+  # Run a specific node for curl-based scripts
   get '/run/:collective/:node' do
     @node = params[:node]
     @collective = params[:collective]

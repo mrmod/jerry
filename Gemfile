@@ -1,7 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'compass'
+
+# Controllers and models
 gem 'sinatra'
+gem 'sinatra-contrib'
 gem 'thin'
-gem 'modular-scale'
+
+# View components
 gem 'haml'
+gem 'modular-scale'
+gem 'compass'

@@ -5,66 +5,53 @@ Puppet Control allows an admin to
 * Add nodes to a list of authorized nodes
 * Assign classes to nodes
 * Assign parameters to classes
-* Create node *roles*
+* Create node **roles**
 * Search for nodes
 * Retrieve node inventory
 * Carry out Puppet runs on collections of nodes
 
 Puppet Control provides the following roles
-[Observer]
-  * Can see what curators have created
-  * Can see the progress of tasks in progress
-[Curator/Creator]
-  * Creates or edits classifications
-  * Can search inventories and for nodes
-[Operator]
-  * Can issue runs, search for nodes, or get inventory information
-[Admin]
-  * *Curator* + *Operator*
+<dl>
+  <dt>Observer</dt>
+    <dd>Can see what curators have created</dd>
+    <dd>Can see the progress of tasks in progress</dd>
+  <dt>Curator/Creator</dt>
+    <dd>Creates or edits classifications</dd>
+    <dd>Can search inventories and for nodes</dd>
+  <dt>Operator</dt>
+    <dd>Can issue runs, search for nodes, or get inventory information</dd>
+<dt>Admin</dt>
+  <dd> <strong>Curator</strong> + <strong>Operator</strong></dd>
+</dl>
 
-# What's missing
+## Current features
 
-Reporting analysis tools are missing. Too much to do for a first revision
+* Discover nodes
+* Inventory nodes
+* Run nodes
+* Authorize and de-authorize nodes
 
-# Feature priority
+## What's missing
 
-1. Authorize nodes
-1. Search for nodes (mcollective ping)
-1. Inventory nodes
+* Reporting analysis tools are missing
+* Any kind of batching or fact matching
+* All regex features
+* Multi-node runs
 
-# Design guide
+## Feature priority
 
-A user must login before doing anything. This is a single page action.
- 
-The main screen displays a grid of options as N cubes. When a cube is clicked, we head to that administrative action. 
+1. Multi-node runs
+1. Regex features
+1. Batching and fact matching
 
-## Common Elements
+## Projects we use
+* [Gumby][http://gumbyframework.com/]
+* [Sinatra][http://www.sinatrarb.com/]
+* [Haml][http://haml.info/]
+* [RightJS][http://rightjs.org/]
 
-Any administrative action screen is topped with a flat bar of *Start* and then each available administrative action.
+Uh, and the two other packaged Javascript frameworks.
 
-[False Claims Warning]
- This will not be available in the first release
+## Warranty and Such
 
-## Authorize Nodes
-
-Authorize nodes presents a node addition form with a text field and a flat button *Add* in a cube on the left. On the right, a cube with recently added hosts is listed. A search bar tops this cube. On the right side of the cube are a tab for Sort with the top of the tab being ascending, the bottom being descending.
-
-[ToDo]
- * Nodes in the right cube should be deletable
-
-## Search for Nodes
-
-Presents a cube with various common facts. Once a fact key is selected a text box for a value is presented in a second cube on the right with a *Search* flat button. 
-
-A fact key called 'All' is available and is the default selection for discovering all nodes.
-
-The search results are ordered by discovery time into the right cube with the familiar ascending / descending tab model. Times are displayed as:
-* somehost.com (23ms)
-
-[ToDo]
-* Allow multiple fact keys and values to be specified
-
-## Inventory Nodes
-
-The familiar two cube model returns. The left cube allows a hostname to be specified with an *Inventory* flat button. 
-
+This "software" is not safe for anyone and will break anything it touches. Don't use it unless you like bad things.
