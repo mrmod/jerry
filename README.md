@@ -1,16 +1,21 @@
 # Jerry
 Jerry was a race car driver. Never did win no checkered flags, but never did come in last.
 
-Puppet Control allows an admin to
-* Add nodes to a list of authorized nodes
-* Assign classes to nodes
-* Assign parameters to classes
-* Create node **roles**
+Jerry allows an admin to:
+
+* Maintain a list of authorized nodes
 * Search for nodes
 * Retrieve node inventory
-* Carry out Puppet runs on collections of nodes
+* Run Puppet on a node
+* *Assign classes to nodes (pending)*
+* *Assign parameters to classes (pending)*
+* *Carry out Puppet runs on collections of nodes (pending)*
+* *Create node **roles** (pending)*
 
-Puppet Control provides the following roles
+----
+
+Jerry provides the following roles:
+
 <dl>
   <dt>Observer</dt>
     <dd>Can see what curators have created</dd>
@@ -24,13 +29,6 @@ Puppet Control provides the following roles
   <dd> <strong>Curator</strong> + <strong>Operator</strong></dd>
 </dl>
 
-## Current features
-
-* Discover nodes
-* Inventory nodes
-* Run nodes
-* Authorize and de-authorize nodes
-
 ## What's missing
 
 * Reporting analysis tools are missing
@@ -38,17 +36,17 @@ Puppet Control provides the following roles
 * All regex features
 * Multi-node runs
 
-## Feature priority
+### Feature priority
 
 1. Multi-node runs
 1. Regex features
 1. Batching and fact matching
 
 ## Projects we use
-* [Gumby][http://gumbyframework.com/]
-* [Sinatra][http://www.sinatrarb.com/]
-* [Haml][http://haml.info/]
-* [RightJS][http://rightjs.org/]
+* [Gumby](http://gumbyframework.com/)
+* [Sinatra](http://www.sinatrarb.com/)
+* [Haml](http://haml.info/)
+* [RightJS](http://rightjs.org/)
 
 Uh, and the two other packaged Javascript frameworks.
 
