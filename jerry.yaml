@@ -1,0 +1,19 @@
+---
+# Port to run Jerry on
+port: 9876
+# Whitelist for authorizing nodes to
+whitelist: http://localhost:5984/whitelist
+# MCollective configuration file path for the client
+mco_config: mcollective/client.cfg
+# Default collective
+collective: mcollective
+# Default mco settings
+mco_settings:
+  discovery_time: 5
+  timeout: 5
+# Jerry's spit bucket
+logfile: jerry.log
+# Log level
+log_level: Logger::DEBUG
+
+
