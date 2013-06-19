@@ -543,3 +543,404 @@ D, [2013-06-16T21:54:51.403104 #89699] DEBUG -- : Run request for marlin.mock.co
 D, [2013-06-16T21:54:51.403222 #89699] DEBUG -- : Starting run for marlin.mock.com
 D, [2013-06-16T21:55:47.224432 #89699] DEBUG -- : Run request for marlin.mock.com@mcollective
 D, [2013-06-16T21:55:47.224538 #89699] DEBUG -- : Starting run for marlin.mock.com
+D, [2013-06-17T20:45:10.444487 #56951] DEBUG -- : Run request for marlin.mock.com@mcollective
+D, [2013-06-17T20:45:10.444602 #56951] DEBUG -- : Starting run for marlin.mock.com
+D, [2013-06-17T20:47:17.870727 #56951] DEBUG -- : Run request for marlin.mock.com@mcollective
+D, [2013-06-17T20:47:17.870835 #56951] DEBUG -- : Starting run for marlin.mock.com
+D, [2013-06-18T09:38:58.101191 #95221] DEBUG -- : Authorizing d.c.com
+D, [2013-06-18T09:39:09.476256 #95221] DEBUG -- : Authorizing e.c.com
+D, [2013-06-18T09:40:33.657052 #95299] DEBUG -- : Authorizing f.c.com
+D, [2013-06-18T09:40:33.668036 #95299] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T09:41:24.049877 #95299] DEBUG -- : Authorizing f.c.com
+D, [2013-06-18T09:41:24.053462 #95299] DEBUG -- : 409 Conflict
+D, [2013-06-18T09:41:24.060903 #95299] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T09:52:51.845177 #95691] DEBUG -- : Authorizing d.c.com
+D, [2013-06-18T09:52:51.850871 #95691] DEBUG -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T09:52:51.854175 #95691] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T09:54:23.612899 #95974] DEBUG -- : Authorizing d.c.com
+D, [2013-06-18T09:54:46.024027 #95993] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T09:54:46.027861 #95993] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T09:54:46.031136 #95993] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T10:00:27.811795 #95993] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T10:00:27.815335 #95993] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T10:00:27.818579 #95993] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T10:02:08.909832 #96356] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T10:02:08.919485 #96356] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T10:02:08.922669 #96356] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T10:24:04.662262 #96356] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T10:24:04.665976 #96356] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T10:24:04.669221 #96356] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T10:24:12.614312 #97436] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T10:24:12.622284 #97436] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T10:24:12.625465 #97436] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T10:24:14.972835 #97436] DEBUG -- : Authorizing 
+E, [2013-06-18T10:24:14.975852 #97436] ERROR -- : RestClient::PreconditionFailed: 412 Precondition Failed: {"error":"file_exists","reason":"The database could not be created, the file already exists."}
+
+D, [2013-06-18T10:24:14.979274 #97436] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T10:24:24.802250 #97436] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T10:24:24.805895 #97436] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T10:24:24.809064 #97436] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T10:24:39.968174 #97436] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T10:24:39.971903 #97436] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T10:24:39.975107 #97436] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T10:24:49.764200 #97436] DEBUG -- : Authorizing d.c.com
+E, [2013-06-18T10:24:49.768213 #97436] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T10:24:49.771610 #97436] DEBUG -- : Displaying ["a.b.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T10:24:57.514450 #97436] DEBUG -- : Authorizing aa.c.com
+D, [2013-06-18T10:24:57.526051 #97436] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:34:34.206585 #97436] DEBUG -- : Authorizing aa.c.com
+E, [2013-06-18T11:34:34.210271 #97436] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T11:34:34.231516 #97436] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:34:38.728160 #97436] DEBUG -- : Authorizing aa.c.com
+E, [2013-06-18T11:34:38.731910 #97436] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T11:34:38.735153 #97436] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:34:53.203152 #97436] DEBUG -- : Authorizing ab.c.com
+D, [2013-06-18T11:34:53.214870 #97436] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:41:21.744018 #1312] DEBUG -- : Authorizing 
+D, [2013-06-18T11:41:21.749903 #1312] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:50:05.560634 #1312] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:51:45.068281 #1312] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:52:10.840025 #1312] DEBUG -- : Authorizing ac.c.com
+D, [2013-06-18T11:52:10.851971 #1312] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:52:19.275876 #1312] DEBUG -- : Authorizing ad.c.com
+D, [2013-06-18T11:52:19.287841 #1312] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:52:28.185053 #1312] DEBUG -- : Authorizing ae.c.com
+D, [2013-06-18T11:52:28.196820 #1312] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:53:31.085053 #1895] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:53:32.873027 #1895] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T11:55:31.591779 #1895] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:57:28.336770 #1895] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:57:50.257216 #1895] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:58:11.311121 #1895] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T11:59:08.111543 #1895] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:00:15.155913 #1895] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:00:32.969002 #1895] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:02:50.837174 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:03:54.701145 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:05:28.135752 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:05:49.193397 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:06:33.495028 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:06:45.156101 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:06:53.765989 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:07:03.455218 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:07:16.351471 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:07:24.221523 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:07:33.093865 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:07:45.505841 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:07:59.716125 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:08:09.242087 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:09:58.329967 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:10:14.062230 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:10:19.551012 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:10:20.329746 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:10:56.980535 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:10:57.907115 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:11:16.258871 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:11:17.054380 #2358] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:11:38.525046 #2801] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:11:40.695315 #2801] DEBUG -- : Deleting 
+D, [2013-06-18T12:12:24.558528 #2842] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:12:26.074622 #2842] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:12:51.409747 #2842] DEBUG -- : Deleting aa.c.com
+D, [2013-06-18T12:12:53.658599 #2842] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:13:40.595059 #2904] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:13:42.500570 #2904] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:14:27.314640 #2948] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:14:28.588859 #2948] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:15:08.876629 #2984] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:15:15.626600 #2984] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:15:41.524443 #3011] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:15:42.714709 #3011] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:16:10.329485 #3039] DEBUG -- : Displaying ["a.b.com", "aa.c.com", "ab.c.com", "ac.c.com", "ad.c.com", "ae.c.com", "b.c.com", "c.c.com", "d.c.com", "e.c.com", "f.c.com", "fake.mock.com", "node1.mock.com"] 
+D, [2013-06-18T12:16:11.816222 #3039] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:16:13.107984 #3039] DEBUG -- : Deleting aa.c.com
+D, [2013-06-18T12:16:13.624806 #3039] DEBUG -- : Deleting ab.c.com
+D, [2013-06-18T12:16:14.018932 #3039] DEBUG -- : Deleting ac.c.com
+D, [2013-06-18T12:16:14.198857 #3039] DEBUG -- : Deleting ad.c.com
+D, [2013-06-18T12:16:14.513661 #3039] DEBUG -- : Deleting ae.c.com
+D, [2013-06-18T12:16:14.704765 #3039] DEBUG -- : Deleting b.c.com
+D, [2013-06-18T12:16:15.413771 #3039] DEBUG -- : Deleting c.c.com
+D, [2013-06-18T12:16:15.829847 #3039] DEBUG -- : Deleting d.c.com
+D, [2013-06-18T12:16:16.111169 #3039] DEBUG -- : Deleting e.c.com
+D, [2013-06-18T12:16:16.392264 #3039] DEBUG -- : Deleting f.c.com
+D, [2013-06-18T12:16:19.024764 #3039] DEBUG -- : Deleting node1.mock.com
+D, [2013-06-18T12:16:20.385742 #3039] DEBUG -- : Deleting fake.mock.com
+D, [2013-06-18T12:17:00.461054 #3039] DEBUG -- : Displaying [] 
+D, [2013-06-18T12:17:04.843165 #3039] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T12:17:04.854239 #3039] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:19:13.358673 #3039] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:19:15.907300 #3039] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:19:18.508430 #3039] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T12:19:18.520037 #3039] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:23:36.285990 #3039] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:23:38.475105 #3039] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:23:41.477080 #3039] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T12:23:41.488326 #3039] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:23:43.536297 #3039] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T12:23:43.543089 #3039] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:24:25.513030 #5759] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T12:24:25.518780 #5759] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T12:24:25.521828 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:24:27.594735 #5759] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T12:24:27.598583 #5759] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T12:24:27.601633 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:24:29.242120 #5759] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:24:31.007835 #5759] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T12:24:31.019261 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:27:39.018894 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:27:42.274352 #5759] DEBUG -- : Authorizing 
+E, [2013-06-18T12:27:42.277498 #5759] ERROR -- : RestClient::PreconditionFailed: 412 Precondition Failed: {"error":"file_exists","reason":"The database could not be created, the file already exists."}
+
+D, [2013-06-18T12:27:42.280904 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:27:47.182582 #5759] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T12:27:47.186417 #5759] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T12:27:47.189404 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:27:50.157820 #5759] DEBUG -- : Authorizing a.c.com
+D, [2013-06-18T12:27:50.169999 #5759] DEBUG -- : Displaying ["a.b.com", "a.c.com"] 
+D, [2013-06-18T12:27:51.704839 #5759] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:27:52.323034 #5759] DEBUG -- : Deleting a.c.com
+D, [2013-06-18T12:28:27.810508 #5759] DEBUG -- : Displaying [] 
+D, [2013-06-18T12:28:29.346135 #5759] DEBUG -- : Authorizing 
+E, [2013-06-18T12:28:29.348946 #5759] ERROR -- : RestClient::PreconditionFailed: 412 Precondition Failed: {"error":"file_exists","reason":"The database could not be created, the file already exists."}
+
+D, [2013-06-18T12:28:29.351897 #5759] DEBUG -- : Displaying [] 
+D, [2013-06-18T12:28:30.401779 #5759] DEBUG -- : Authorizing 
+E, [2013-06-18T12:28:30.404784 #5759] ERROR -- : RestClient::PreconditionFailed: 412 Precondition Failed: {"error":"file_exists","reason":"The database could not be created, the file already exists."}
+
+D, [2013-06-18T12:28:30.407657 #5759] DEBUG -- : Displaying [] 
+D, [2013-06-18T12:28:32.466366 #5759] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T12:28:32.477572 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:28:34.136768 #5759] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:28:35.216154 #5759] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T12:28:35.303321 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:28:36.091293 #5759] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T12:28:36.095155 #5759] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T12:28:36.098171 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:28:38.084575 #5759] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T12:28:38.088775 #5759] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T12:28:38.091930 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:28:39.043102 #5759] DEBUG -- : Authorizing a.c.com
+D, [2013-06-18T12:28:39.055004 #5759] DEBUG -- : Displaying ["a.b.com", "a.c.com"] 
+D, [2013-06-18T12:28:40.701093 #5759] DEBUG -- : Deleting a.c.com
+D, [2013-06-18T12:35:12.235704 #5759] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T12:35:12.235807 #5759] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T12:35:17.484450 #5759] DEBUG -- : Rendering {"Bruces-iMac.local"=>50.978899002075195, "marlin.mock.com"=>52.803993225097656}
+D, [2013-06-18T12:37:49.771811 #5759] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T12:37:49.771922 #5759] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T12:37:54.776349 #5759] DEBUG -- : Rendering {"Bruces-iMac.local"=>7.174968719482422, "marlin.mock.com"=>10.032892227172852}
+D, [2013-06-18T12:38:15.545347 #5759] DEBUG -- : Getting node details for marlin.mock.com
+D, [2013-06-18T12:38:15.669665 #5759] DEBUG -- : Model provided: {:node=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["rpcutil", "discovery", "puppet"], :facts=>{}, :classes=>["settings", "default"], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"]}}, :daemon=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x0000000d242018 sleep>", "#<Thread:0x0000000d9522b8 run>", "#<Thread:0x0000000e19e4f8 run>"], :agents=>["rpcutil", "discovery", "puppet"], :pid=>17592, :times=>{:utime=>0.45, :stime=>0.17, :cutime=>0.0, :cstime=>0.01}, :validated=>6, :unvalidated=>0, :passed=>5, :filtered=>1, :starttime=>1371571721, :total=>6, :replies=>4, :configfile=>"/etc/mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T12:38:25.144055 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:38:26.620821 #5759] DEBUG -- : Authorizing 
+E, [2013-06-18T12:38:26.630291 #5759] ERROR -- : RestClient::PreconditionFailed: 412 Precondition Failed: {"error":"file_exists","reason":"The database could not be created, the file already exists."}
+
+D, [2013-06-18T12:38:26.633348 #5759] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T12:38:29.824970 #5759] DEBUG -- : Authorizing c.b.com
+D, [2013-06-18T12:38:29.836670 #5759] DEBUG -- : Displaying ["a.b.com", "c.b.com"] 
+D, [2013-06-18T12:38:31.980695 #5759] DEBUG -- : Deleting c.b.com
+D, [2013-06-18T12:38:33.634383 #5759] DEBUG -- : Authorizing c.b.com
+D, [2013-06-18T12:38:33.649246 #5759] DEBUG -- : Displaying ["a.b.com", "c.b.com"] 
+D, [2013-06-18T12:38:34.635630 #5759] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T12:40:07.227215 #5759] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T12:40:07.227326 #5759] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5", "marlin.mock.com"]
+D, [2013-06-18T12:40:12.232271 #5759] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.88624382019043, "marlin.mock.com"=>9.167194366455078}
+D, [2013-06-18T12:40:14.931480 #5759] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T12:40:14.931587 #5759] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5", "marlin.mock.com"]
+D, [2013-06-18T12:40:19.936676 #5759] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.208181381225586, "marlin.mock.com"=>7.894039154052734}
+D, [2013-06-18T12:41:13.056861 #5759] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T12:41:13.056968 #5759] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5", "marlin.mock.com"]
+D, [2013-06-18T12:41:18.061430 #5759] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.535768508911133, "marlin.mock.com"=>8.315801620483398}
+D, [2013-06-18T13:34:01.367590 #9185] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:34:01.367741 #9185] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:34:06.785974 #9185] DEBUG -- : Rendering {"Bruces-iMac.local"=>58.219194412231445, "marlin.mock.com"=>59.740304946899414}
+D, [2013-06-18T13:34:19.654620 #9207] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:34:19.654753 #9207] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:34:24.736186 #9207] DEBUG -- : Rendering {"Bruces-iMac.local"=>49.31497573852539, "marlin.mock.com"=>51.08308792114258}
+D, [2013-06-18T13:34:52.237158 #9234] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:34:52.238230 #9234] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:34:57.320420 #9234] DEBUG -- : Rendering {"marlin.mock.com"=>51.22780799865723, "Bruces-iMac.local"=>53.54905128479004}
+D, [2013-06-18T13:37:20.956396 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:37:20.956565 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:37:26.029723 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>50.04620552062988, "marlin.mock.com"=>51.528215408325195}
+D, [2013-06-18T13:39:42.730444 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:39:42.730576 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:39:47.320331 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:39:47.320447 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:39:47.735634 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>7.419109344482422, "marlin.mock.com"=>9.107828140258789}
+D, [2013-06-18T13:39:52.325468 #9360] DEBUG -- : Rendering {"marlin.mock.com"=>48.17318916320801}
+D, [2013-06-18T13:40:03.017113 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:40:03.017242 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:40:03.023409 #9360] DEBUG -- : No nodes found : can't convert Symbol into Integer
+D, [2013-06-18T13:40:08.176252 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:40:08.176386 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:40:13.181185 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.88624382019043, "marlin.mock.com"=>17.939329147338867}
+D, [2013-06-18T13:40:15.601675 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:40:15.601810 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:40:20.623841 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.849050521850586, "marlin.mock.com"=>8.545160293579102}
+D, [2013-06-18T13:43:34.615498 #9360] DEBUG -- : Displaying ["c.b.com"] 
+D, [2013-06-18T13:43:36.163194 #9360] DEBUG -- : Authorizing 
+E, [2013-06-18T13:43:36.171292 #9360] ERROR -- : RestClient::PreconditionFailed: 412 Precondition Failed: {"error":"file_exists","reason":"The database could not be created, the file already exists."}
+
+D, [2013-06-18T13:43:36.174486 #9360] DEBUG -- : Displaying ["c.b.com"] 
+D, [2013-06-18T13:43:42.756803 #9360] DEBUG -- : Authorizing 
+D, [2013-06-18T13:43:42.758367 #9360] DEBUG -- : Authorizing 
+E, [2013-06-18T13:43:42.763263 #9360] ERROR -- : RestClient::PreconditionFailed: 412 Precondition Failed: {"error":"file_exists","reason":"The database could not be created, the file already exists."}
+
+E, [2013-06-18T13:43:42.764029 #9360] ERROR -- : RestClient::PreconditionFailed: 412 Precondition Failed: {"error":"file_exists","reason":"The database could not be created, the file already exists."}
+
+D, [2013-06-18T13:43:42.768398 #9360] DEBUG -- : Displaying ["c.b.com"] 
+D, [2013-06-18T13:43:42.771695 #9360] DEBUG -- : Displaying ["c.b.com"] 
+D, [2013-06-18T13:43:47.604334 #9360] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T13:43:47.605675 #9360] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T13:43:47.624610 #9360] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T13:43:47.665237 #9360] DEBUG -- : Displaying ["a.b.com", "c.b.com"] 
+D, [2013-06-18T13:43:47.668660 #9360] DEBUG -- : Displaying ["a.b.com", "c.b.com"] 
+D, [2013-06-18T13:43:50.578547 #9360] DEBUG -- : Authorizing a.b.comf
+D, [2013-06-18T13:43:50.607073 #9360] DEBUG -- : Displaying ["a.b.com", "a.b.comf", "c.b.com"] 
+D, [2013-06-18T13:43:51.591276 #9360] DEBUG -- : Deleting a.b.comf
+D, [2013-06-18T13:43:52.209507 #9360] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T13:43:52.491068 #9360] DEBUG -- : Deleting c.b.com
+D, [2013-06-18T13:43:55.866770 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:43:55.866898 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:44:00.871352 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.763935089111328, "marlin.mock.com"=>8.700847625732422}
+D, [2013-06-18T13:44:40.898659 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:44:40.898789 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:44:45.903670 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>24.311065673828125, "marlin.mock.com"=>26.652812957763672}
+D, [2013-06-18T13:45:15.257902 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:45:15.258036 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:45:20.262457 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.752967834472656, "marlin.mock.com"=>8.533000946044922}
+D, [2013-06-18T13:45:36.066634 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:45:36.066771 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:45:41.071885 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.889104843139648, "marlin.mock.com"=>9.25898551940918}
+D, [2013-06-18T13:46:21.108954 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:46:21.109086 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:46:26.113741 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.33692741394043, "marlin.mock.com"=>8.664131164550781}
+D, [2013-06-18T13:52:48.559027 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:52:48.559160 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:52:53.563569 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>7.462263107299805, "marlin.mock.com"=>9.351253509521484}
+D, [2013-06-18T13:54:08.193780 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T13:54:08.193913 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T13:54:13.199590 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.761074066162109, "marlin.mock.com"=>9.30023193359375}
+D, [2013-06-18T13:56:04.701778 #9360] DEBUG -- : Displaying [] 
+D, [2013-06-18T13:56:07.554815 #9360] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T13:56:07.558066 #9360] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T13:56:07.564660 #9360] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T13:56:07.585080 #9360] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T13:56:07.588518 #9360] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T13:56:12.473486 #9360] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T13:56:14.093126 #9360] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T13:56:14.106049 #9360] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T13:56:18.519786 #9360] DEBUG -- : Authorizing c.c.com
+D, [2013-06-18T13:56:18.522826 #9360] DEBUG -- : Authorizing c.c.com
+E, [2013-06-18T13:56:18.529575 #9360] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T13:56:18.537236 #9360] DEBUG -- : Displaying ["a.b.com", "c.c.com"] 
+D, [2013-06-18T13:56:18.540718 #9360] DEBUG -- : Displaying ["a.b.com", "c.c.com"] 
+D, [2013-06-18T13:58:55.598068 #9360] DEBUG -- : Displaying ["a.b.com", "c.c.com"] 
+D, [2013-06-18T13:59:01.815958 #9360] DEBUG -- : Authorizing c.d.com
+D, [2013-06-18T13:59:01.830039 #9360] DEBUG -- : Displaying ["a.b.com", "c.c.com", "c.d.com"] 
+D, [2013-06-18T13:59:04.455618 #9360] DEBUG -- : Authorizing c.d.com
+E, [2013-06-18T13:59:04.459901 #9360] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T13:59:04.463160 #9360] DEBUG -- : Displaying ["a.b.com", "c.c.com", "c.d.com"] 
+D, [2013-06-18T13:59:05.834713 #9360] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T13:59:06.407814 #9360] DEBUG -- : Deleting c.d.com
+D, [2013-06-18T13:59:07.577638 #9360] DEBUG -- : Deleting c.c.com
+D, [2013-06-18T13:59:08.886482 #9360] DEBUG -- : Authorizing c.d.com
+D, [2013-06-18T13:59:08.899070 #9360] DEBUG -- : Displaying ["c.d.com"] 
+D, [2013-06-18T13:59:12.965808 #9360] DEBUG -- : Authorizing c.c.com
+D, [2013-06-18T13:59:12.978962 #9360] DEBUG -- : Displaying ["c.c.com", "c.d.com"] 
+D, [2013-06-18T13:59:14.248145 #9360] DEBUG -- : Deleting c.c.com
+D, [2013-06-18T13:59:14.440284 #9360] DEBUG -- : Deleting c.d.com
+D, [2013-06-18T14:00:38.870833 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T14:00:38.870965 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:00:43.875467 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>7.256031036376953, "marlin.mock.com"=>9.617805480957031}
+D, [2013-06-18T14:00:45.528740 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T14:00:45.528866 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:00:50.533176 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.304025650024414, "marlin.mock.com"=>8.348941802978516}
+D, [2013-06-18T14:00:57.875606 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T14:00:57.875734 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:01:02.880061 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.811857223510742, "marlin.mock.com"=>9.260177612304688}
+D, [2013-06-18T14:33:36.036077 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T14:33:36.036210 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:33:41.041484 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.5898895263671875, "marlin.mock.com"=>8.380889892578125}
+D, [2013-06-18T14:34:36.356742 #9360] DEBUG -- : Calling discover_nodes with mcollective
+D, [2013-06-18T14:34:36.356873 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:34:41.361654 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.5937042236328125, "marlin.mock.com"=>8.600711822509766}
+D, [2013-06-18T14:41:20.347809 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T14:41:20.347949 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:41:25.353438 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.7539215087890625, "marlin.mock.com"=>9.067058563232422}
+D, [2013-06-18T14:44:38.093580 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T14:44:38.093714 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:44:43.098878 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.693840026855469, "marlin.mock.com"=>8.817911148071289}
+D, [2013-06-18T14:45:18.228700 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T14:45:18.228826 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:45:23.233795 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.588935852050781, "marlin.mock.com"=>9.765148162841797}
+D, [2013-06-18T14:46:01.280488 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T14:46:01.280643 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:46:06.285563 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.685972213745117, "marlin.mock.com"=>18.450021743774414}
+D, [2013-06-18T14:46:07.692485 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T14:46:07.692615 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:46:12.697502 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>6.623029708862305, "marlin.mock.com"=>8.795022964477539}
+D, [2013-06-18T14:46:15.128497 #9360] DEBUG -- : Calling discover_nodes with 
+D, [2013-06-18T14:46:15.128634 #9360] DEBUG -- : Jerry:discover_nodes: Collective: mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:46:20.133463 #9360] DEBUG -- : Rendering {"Bruces-iMac.local"=>7.081031799316406, "marlin.mock.com"=>9.567975997924805}
+D, [2013-06-18T14:46:44.394673 #9360] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T14:46:44.396059 #9360] DEBUG -- : Authorizing a.b.com
+E, [2013-06-18T14:46:44.403092 #9360] ERROR -- : RestClient::Conflict: 409 Conflict: {"error":"conflict","reason":"Document update conflict."}
+
+D, [2013-06-18T14:46:44.410646 #9360] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T14:46:44.414124 #9360] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T14:46:46.410819 #9360] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T14:49:41.200598 #9360] DEBUG -- : Authorizing a.b.com
+D, [2013-06-18T14:49:41.212527 #9360] DEBUG -- : Displaying ["a.b.com"] 
+D, [2013-06-18T14:49:43.675635 #9360] DEBUG -- : Deleting a.b.com
+D, [2013-06-18T14:49:49.824015 #9360] DEBUG -- : Getting node details for marlin.mock.com
+D, [2013-06-18T14:49:50.196000 #9360] DEBUG -- : Model provided: {:node=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["rpcutil", "discovery", "puppet"], :facts=>{}, :classes=>["settings", "default"], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"]}}, :daemon=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x0000000d242018 sleep>", "#<Thread:0x0000000e559e58 run>", "#<Thread:0x0000000e5384d8 run>"], :agents=>["rpcutil", "discovery", "puppet"], :pid=>17592, :times=>{:utime=>0.49, :stime=>0.21, :cutime=>0.0, :cstime=>0.01}, :validated=>38, :unvalidated=>0, :passed=>37, :filtered=>1, :starttime=>1371571721, :total=>38, :replies=>36, :configfile=>"/etc/mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T14:49:57.737604 #9360] DEBUG -- : Getting node details for Bruces-iMac.local
+D, [2013-06-18T14:49:57.801209 #9360] DEBUG -- : Model provided: {:node=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["rpcutil", "discovery", "puppet"], :facts=>{}, :classes=>["settings", "default"], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"]}}, :daemon=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x0000000d242018 sleep>", "#<Thread:0x0000000da9a2d8 run>", "#<Thread:0x0000000dc33590 run>"], :agents=>["rpcutil", "discovery", "puppet"], :pid=>17592, :times=>{:utime=>0.49, :stime=>0.22, :cutime=>0.0, :cstime=>0.01}, :validated=>40, :unvalidated=>0, :passed=>39, :filtered=>1, :starttime=>1371571721, :total=>40, :replies=>38, :configfile=>"/etc/mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T14:50:06.625455 #9360] DEBUG -- : Getting node details for Bruces-iMac.local
+D, [2013-06-18T14:50:06.705733 #9360] DEBUG -- : Model provided: {:node=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["rpcutil", "discovery", "puppet"], :facts=>{}, :classes=>["settings", "default"], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"]}}, :daemon=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x0000000d242018 sleep>", "#<Thread:0x0000000e3c43b8 run>", "#<Thread:0x0000000dea4ae0 run>"], :agents=>["rpcutil", "discovery", "puppet"], :pid=>17592, :times=>{:utime=>0.51, :stime=>0.22, :cutime=>0.0, :cstime=>0.01}, :validated=>42, :unvalidated=>0, :passed=>41, :filtered=>1, :starttime=>1371571721, :total=>42, :replies=>40, :configfile=>"/etc/mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T14:50:22.587931 #9360] DEBUG -- : Getting node details for asdfasdf
+D, [2013-06-18T14:50:22.649946 #9360] DEBUG -- : Model provided: {:node=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["rpcutil", "discovery", "puppet"], :facts=>{}, :classes=>["settings", "default"], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"]}}, :daemon=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x0000000d242018 sleep>", "#<Thread:0x0000000dd63028 run>", "#<Thread:0x0000000dce66b8 run>"], :agents=>["rpcutil", "discovery", "puppet"], :pid=>17592, :times=>{:utime=>0.51, :stime=>0.22, :cutime=>0.0, :cstime=>0.01}, :validated=>44, :unvalidated=>0, :passed=>43, :filtered=>1, :starttime=>1371571721, :total=>44, :replies=>42, :configfile=>"/etc/mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T14:53:09.078509 #13104] DEBUG -- : Getting node details for Bruces-iMac.local in mcollective
+D, [2013-06-18T14:53:09.329697 #13104] DEBUG -- : Model provided: {:node=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["discovery", "rpcutil"], :facts=>{}, :classes=>[], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"], :data_plugins=>["agent_data", "fstat_data"]}}, :daemon=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x007fe0298677a0 sleep>", "#<Thread:0x007fe02b3b3d88 run>", "#<Thread:0x007fe02b39ac48 run>"], :agents=>["discovery", "rpcutil"], :pid=>29966, :times=>{:utime=>0.62, :stime=>0.19, :cutime=>0.0, :cstime=>0.0}, :validated=>447, :unvalidated=>0, :passed=>247, :filtered=>200, :starttime=>1371370998, :total=>447, :replies=>246, :configfile=>"mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T14:53:16.429889 #13104] DEBUG -- : Getting node details for marlin.mock.com in mcollective
+D, [2013-06-18T14:53:16.491025 #13104] DEBUG -- : Model provided: {:node=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["discovery", "rpcutil"], :facts=>{}, :classes=>[], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"], :data_plugins=>["agent_data", "fstat_data"]}}, :daemon=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x007fe0298677a0 sleep>", "#<Thread:0x007fe02b382f08 run>", "#<Thread:0x007fe02b380a50 run>"], :agents=>["discovery", "rpcutil"], :pid=>29966, :times=>{:utime=>0.62, :stime=>0.19, :cutime=>0.0, :cstime=>0.0}, :validated=>449, :unvalidated=>0, :passed=>249, :filtered=>200, :starttime=>1371370998, :total=>449, :replies=>248, :configfile=>"mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T14:53:36.122754 #13104] DEBUG -- : Getting node details for hammer.mock.com in mcollective
+D, [2013-06-18T14:53:36.183767 #13104] DEBUG -- : Model provided: {:node=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["discovery", "rpcutil"], :facts=>{}, :classes=>[], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"], :data_plugins=>["agent_data", "fstat_data"]}}, :daemon=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x007fe0298677a0 sleep>", "#<Thread:0x007fe02b3373f0 run>", "#<Thread:0x007fe02b330640 run>"], :agents=>["discovery", "rpcutil"], :pid=>29966, :times=>{:utime=>0.63, :stime=>0.19, :cutime=>0.0, :cstime=>0.0}, :validated=>451, :unvalidated=>0, :passed=>251, :filtered=>200, :starttime=>1371370998, :total=>451, :replies=>250, :configfile=>"mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T14:56:59.532771 #13301] DEBUG -- : Getting node details for hammer.mock.com in mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:57:29.629836 #13301] DEBUG -- : Model provided: ""
+D, [2013-06-18T14:57:34.109528 #13301] DEBUG -- : Getting node details for marlin.mock.com in mcollective, opts: ["--dt", "5", "-t", "5", "hammer.mock.com"]
+D, [2013-06-18T14:58:10.869655 #13358] DEBUG -- : Getting node details for marlin.mock.com in mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T14:58:11.072160 #13358] DEBUG -- : Model provided: {:node=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["rpcutil", "discovery", "puppet"], :facts=>{}, :classes=>["settings", "default"], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"]}}, :daemon=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x0000000d242018 sleep>", "#<Thread:0x0000000e51a780 run>", "#<Thread:0x0000000e533aa0 run>"], :agents=>["rpcutil", "discovery", "puppet"], :pid=>17592, :times=>{:utime=>0.51, :stime=>0.22, :cutime=>0.0, :cstime=>0.01}, :validated=>56, :unvalidated=>0, :passed=>45, :filtered=>11, :starttime=>1371571721, :total=>56, :replies=>44, :configfile=>"/etc/mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T14:58:17.260575 #13358] DEBUG -- : Getting node details for Bruces-iMac.local in mcollective, opts: ["--dt", "5", "-t", "5", "marlin.mock.com"]
+D, [2013-06-18T14:58:17.323585 #13358] DEBUG -- : Model provided: {:node=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["rpcutil", "discovery", "puppet"], :facts=>{}, :classes=>["settings", "default"], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"]}}, :daemon=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x0000000d242018 sleep>", "#<Thread:0x0000000e5852d8 run>", "#<Thread:0x0000000e587d58 run>"], :agents=>["rpcutil", "discovery", "puppet"], :pid=>17592, :times=>{:utime=>0.51, :stime=>0.23, :cutime=>0.0, :cstime=>0.01}, :validated=>58, :unvalidated=>0, :passed=>47, :filtered=>11, :starttime=>1371571721, :total=>58, :replies=>46, :configfile=>"/etc/mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T15:10:00.410228 #13936] DEBUG -- : Getting node details for Bruces-iMac.local in mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T15:10:00.601401 #13936] DEBUG -- : Model provided: {:node=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["discovery", "rpcutil"], :facts=>{}, :classes=>[], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"], :data_plugins=>["agent_data", "fstat_data"]}}, :daemon=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x007fe0298677a0 sleep>", "#<Thread:0x007fe02a087520 run>", "#<Thread:0x007fe02b118fb0 run>"], :agents=>["discovery", "rpcutil"], :pid=>29966, :times=>{:utime=>0.64, :stime=>0.2, :cutime=>0.0, :cstime=>0.0}, :validated=>461, :unvalidated=>0, :passed=>253, :filtered=>208, :starttime=>1371370998, :total=>461, :replies=>252, :configfile=>"mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T15:10:06.376835 #13936] DEBUG -- : Getting node details for marlin.mock.com in mcollective, opts: ["--dt", "5", "-t", "5", "Bruces-iMac.local"]
+D, [2013-06-18T15:10:06.436993 #13936] DEBUG -- : Model provided: {:node=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["discovery", "rpcutil"], :facts=>{}, :classes=>[], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"], :data_plugins=>["agent_data", "fstat_data"]}}, :daemon=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x007fe0298677a0 sleep>", "#<Thread:0x007fe02b242e40 run>", "#<Thread:0x007fe02b240820 run>"], :agents=>["discovery", "rpcutil"], :pid=>29966, :times=>{:utime=>0.65, :stime=>0.2, :cutime=>0.0, :cstime=>0.0}, :validated=>463, :unvalidated=>0, :passed=>255, :filtered=>208, :starttime=>1371370998, :total=>463, :replies=>254, :configfile=>"mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T15:10:52.840562 #13979] DEBUG -- : Getting node details for marlin.mock.com in mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T15:10:53.031122 #13979] DEBUG -- : Model provided: {:node=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["rpcutil", "discovery", "puppet"], :facts=>{}, :classes=>["settings", "default"], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"]}}, :daemon=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x0000000d242018 sleep>", "#<Thread:0x0000000e562d00 run>", "#<Thread:0x0000000e542370 run>"], :agents=>["rpcutil", "discovery", "puppet"], :pid=>17592, :times=>{:utime=>0.53, :stime=>0.24, :cutime=>0.0, :cstime=>0.01}, :validated=>64, :unvalidated=>0, :passed=>49, :filtered=>15, :starttime=>1371571721, :total=>64, :replies=>48, :configfile=>"/etc/mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T15:10:55.434643 #13979] DEBUG -- : Getting node details for marlin.mock.com in mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T15:10:55.498616 #13979] DEBUG -- : Model provided: {:node=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["rpcutil", "discovery", "puppet"], :facts=>{}, :classes=>["settings", "default"], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"]}}, :daemon=>{:sender=>"marlin.mock.com", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x0000000d242018 sleep>", "#<Thread:0x0000000d7842b0 run>", "#<Thread:0x0000000dacce68 run>"], :agents=>["rpcutil", "discovery", "puppet"], :pid=>17592, :times=>{:utime=>0.53, :stime=>0.24, :cutime=>0.0, :cstime=>0.01}, :validated=>66, :unvalidated=>0, :passed=>51, :filtered=>15, :starttime=>1371571721, :total=>66, :replies=>50, :configfile=>"/etc/mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}
+D, [2013-06-18T15:10:59.181941 #13979] DEBUG -- : Getting node details for Bruces-iMac.local in mcollective, opts: ["--dt", "5", "-t", "5"]
+D, [2013-06-18T15:10:59.240902 #13979] DEBUG -- : Model provided: {:node=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:agents=>["discovery", "rpcutil"], :facts=>{}, :classes=>[], :version=>"2.2.3", :main_collective=>"mcollective", :collectives=>["mcollective"], :data_plugins=>["agent_data", "fstat_data"]}}, :daemon=>{:sender=>"Bruces-iMac.local", :statuscode=>0, :statusmsg=>"OK", :data=>{:threads=>["#<Thread:0x007fe0298677a0 sleep>", "#<Thread:0x007fe02b2c5a48 run>", "#<Thread:0x007fe02b2c3860 run>"], :agents=>["discovery", "rpcutil"], :pid=>29966, :times=>{:utime=>0.65, :stime=>0.2, :cutime=>0.0, :cstime=>0.0}, :validated=>469, :unvalidated=>0, :passed=>257, :filtered=>212, :starttime=>1371370998, :total=>469, :replies=>256, :configfile=>"mcollective/server.cfg", :version=>"2.2.3", :ttlexpired=>0}}}

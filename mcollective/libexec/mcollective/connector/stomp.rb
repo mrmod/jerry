@@ -200,7 +200,7 @@ module MCollective
           sleep 1
           retry
         end
-
+        Log.debug("Message received: #{msg.inspect}")
         Message.new(msg.body, msg, :base64 => @base64, :headers => msg.headers)
       end
 

@@ -212,16 +212,21 @@ END_OF_USAGE
   end
 
   def display_results_single_field(results, field)
+    puts "#{self.class}:#{__method__} : results: #{results.inspect} ; field: #{field.inspect}"
     return false if results.empty?
 
     sender_width = calculate_longest_hostname(results) + 3
     pattern = "%%%ds: %%s" % sender_width
 
     Array(results).each do |result|
-      if result[:statuscode] == 0
-        puts pattern % [result[:sender], result[:data][field]]
-      else
-        puts pattern % [result[:sender], MCollective::Util.colorize(:red, result[:statusmsg])]
+      begin
+        if result[:statuscode] == 0
+          puts pattern % [result[:sender], result[:data][field]]
+        else
+          puts pattern % [result[:sender], MCollective::Util.colorize(:red, result[:statusmsg])]
+        end
+      rescue => e
+        puts "#{self.class}:#{__method__} : #{e.inspect}"
       end
     end
   end
@@ -275,7 +280,6 @@ END_OF_USAGE
   def summary_command
     client.progress = false
     results = client.last_run_summary
-
     puts "Summary statistics for %d nodes:" % results.size
     puts
     puts "                  Total resources: %s" % sparkline_for_field(results, :total_resources)
@@ -286,6 +290,7 @@ END_OF_USAGE
     puts "         Total run-time (seconds): %s" % sparkline_for_field(results, :total_time)
     puts "    Time since last run (seconds): %s" % sparkline_for_field(results, :since_lastrun)
     puts
+  
 
     halt client.stats
   end

@@ -1,10 +1,5 @@
 %div{:class => "row"}
-  %div{:class => "four columns"}
-  - colors = ['primary','default','secondary']
-  - i = 0
   - @choices.each do |c|
-    %div{:class => "tree columns"}
-      %div{:class => "large #{colors[i]} btn"}
-        %a{:title => c, :href => "/#{c.downcase}"}=c
-    - i+=1
+    %div{:class => "four columns large primary btn"}
+      %a{:title => c, :href => "/#{c.downcase}"}=c
   %div{:class => "push_one three columns"}

@@ -1,24 +1,11 @@
-%div{:class => "row"}
-  %div{:class => "two columns"}
-  %div{:class => "six columns"}
+%div{:class => "row", :id => 'controls'}
+  %div{:class => "eight columns"}
     %div{:class => "row"}
-      %ul{:class => "twelve columns"}
+      %ul{:class => "eight columns"}
         %li{:class => "append field"}
-          %form{:name => "node_add", :id => "node_add", :action => "/authorize", :method => "post"}
+          %form{:name => "authorize-node", :id => "authorize-node", :action => "/authorize", :method => "post"}
             %input{:class => "search input", :placeholder => "Node to add", :name => "node"}
-            %span{:class => "narrow primary btn adjoined"}
-              %input{:type => "submit", :value => "add", :class => "primary btn"}    
+            %span{:class => "metro normal adjoined primary btn", :name => 'authorize-submit', :id => 'authorize-submit'} add
 
-  %div{:class => "six columns"}
-    %div{:class => "row"}
-      %ul{:class => "thirteen columns"}
-        %li{:class => "append field"}
-          %form{:name => "node_find", :id => "node_find", :action => "/authorize", :method => "post"}
-            %input{:class => "search input", :placeholder => "Node to find", :name => "node"}
-            %span{:class => "narrow primary adjoined btn"}
-              %input{:type => "submit", :value => "find", :class => "primary btn"}
-    %div{:class => "row"}
-      - @authorized_nodes.each do |node|
-        %div{:class => "row"}
-          %a{:title => "#{node}", :href => "/authorize/#{node}"}=node
-  %div{:class => "two columns"}
+  %div{:class => "eight columns", :id => 'view-results'}
+

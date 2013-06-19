@@ -19,13 +19,25 @@ class RacecarDriver
   # Get a node
   # @param [String] node node name
   def get_node(node)
-    @db.get(node).to_hash
+    @logger.debug("Getting #{node}")
+    begin 
+      @db.get(node).to_hash
+    rescue => e
+      @logger.error("Failed to get #{node}")
+      raise e
+    end
   end
 
   # Add a node
   # @param [String] node Node name
   def add_node(node)
-    @db.save_doc({'_id' => node})
+    @logger.debug("Adding #{node}")
+    begin
+      @db.save_doc({'_id' => node})
+    rescue => e
+      @logger.error("Failed to add #{node}")
+      raise e
+    end
   end
 
   # Provide currently authorized nodes
@@ -33,7 +45,21 @@ class RacecarDriver
   # @param [String] key Row key to locate as the set
   # @return [Array]
   def authorized_nodes(view = 'default/all_nodes', key = 'id')
+    @logger.debug("Rendering view: #{view}")
     @db.view(view)['rows'].reduce([]){|a,r| a << r[key] }
+  end
+
+  # Delete anode
+  # @param [String] node Node to delete
+  def delete_node(node)
+    @logger.info("Deleting #{node}")
+    n = get_node(node)
+    @logger.debug("Retrieved #{n.inspect}")
+    begin
+      @db.delete_doc({'_id' => node, '_rev' => n['_rev']})
+    rescue => e
+      @logger.error("Failed to delete #{node} : #{e.inspect}")
+    end
   end
 
   # Run an mcollective action
@@ -41,7 +67,7 @@ class RacecarDriver
   # @param [String] plugin MCollective plugin/action (ping, puppetd)
   # @param [String] collective
   # @param [Array] opts
-  def mco_action(config_file, plugin, collective = 'mcollective', opts = DEFAULT_OPTS)
+  def mco_action(config_file, plugin, collective = 'mcollective', opts = DEFAULT_OPTS.dup)
     @logger.debug("MCollective action : #{config_file} with opts #{opts.inspect}")
     mco_result = ''
     opts = ["-T", collective] + opts
@@ -63,17 +89,17 @@ class RacecarDriver
   end
 
   # Ping all nodes
-  def discover_nodes(config_file,collective, opts=DEFAULT_OPTS)
+  def discover_nodes(config_file,collective, opts=DEFAULT_OPTS.dup)
     @logger.debug("Running #{__method__} using config #{config_file}")
     mco_action(config_file, 'discover',collective,opts)
   end
   # Get details for a node
-  def node_details(node, config_file, collective,opts=DEFAULT_OPTS)
+  def node_details(node, config_file, collective,opts=DEFAULT_OPTS.dup)
     @logger.debug("Running #{__method__} for #{node}")
     mco_action(config_file, 'details', collective,opts << node)
   end
   # Do a puppet run
-  def run_node(node, config_file, collective, opts=DEFAULT_OPTS)
+  def run_node(node, config_file, collective, opts=DEFAULT_OPTS.dup)
     @logger.debug("Running #{__method__} for #{node}")
     opts << '-I'
     opts << node
@@ -102,7 +128,7 @@ class Jerry < Sinatra::Base
     # Find stuff
     # @param [String] collective
     # @param [Array] opts Options array
-    def discover_nodes(collective = DEFAULT_COLLECTIVE, opts = DEFAULT_OPTIONS)
+    def discover_nodes(collective = DEFAULT_COLLECTIVE, opts = DEFAULT_OPTIONS.dup)
       collective = DEFAULT_COLLECTIVE if collective.empty?
       @logger.debug("#{self.class}:#{__method__}: Collective: #{collective}, opts: #{opts.inspect}")
       begin
@@ -116,27 +142,27 @@ class Jerry < Sinatra::Base
         @logger.debug("No nodes found : #{e}")
         @node_count = @statistics = @nodes = 0
       end
-      
     end
     # Get node details
     # @param [String] node Node FQDN
-    def node_details(node, collective = DEFAULT_COLLECTIVE, opts = DEFAULT_OPTIONS)
-      @logger.debug("Getting node details for #{node}")
+    def node_details(node, collective = DEFAULT_COLLECTIVE, opts = DEFAULT_OPTIONS.dup)
+      @logger.debug("Getting node details for #{node} in #{collective}, opts: #{opts.inspect}")
       @racecar.node_details(node,@mco_config, collective, opts)
     end
 
     # Run a node using the puppetd agent
     # @param [String] node Node fqdn
-    def run_node(node, collective = DEFAULT_COLLECTIVE, opts = DEFAULT_OPTIONS)
+    def run_node(node, collective = DEFAULT_COLLECTIVE, opts = DEFAULT_OPTIONS.dup)
       @logger.debug("Starting run for #{node}")
       @racecar.run_node(node,@mco_config,collective,opts)
     end
+
   end
 
 
 	# Here.I.Am
 	get '/' do
-		@choices = ['Authorize','Discover','Inventory']
+		@choices = ['Authorize','Discover','Inventory', 'Run']
 		haml :index
 	end
 
@@ -146,20 +172,45 @@ class Jerry < Sinatra::Base
   	haml :authorize
   end
 
-  post '/authorize' do
+  get '/authorize/nodes' do
     @authorized_nodes = @racecar.authorized_nodes
-    @racecar.add_node(params[:node]) # match pattern could be here
-    haml :authorize
+    @logger.debug("Displaying #{@authorized_nodes.inspect} ")
+     # match pattern could be here
+    haml :authorize_results, :layout => false
   end
 
   # Filter the list down to just the node and show the serial for the cert
-  post '/authorize/find' do
+  post '/authorize' do
+    node = params[:node]
+    @logger.debug("Authorizing #{node}")
+
+    begin 
+      @racecar.add_node(node)
+    rescue RestClient::Conflict => e
+      @logger.error("#{e.class}: #{e.inspect}")
+      @authorize_error= {:message => "#{node} already exists"}
+      # haml :authorize_errors, :layout => false
+    rescue => e
+      @logger.error("#{e.class}: #{e.inspect}")
+      @authorize_error = {:message => node + " " + e.inspect}
+      # haml :authorize_errors, :layout => false
+    end
     @authorized_nodes = @racecar.authorized_nodes
-    haml :authorize
+    @logger.debug("Displaying #{@authorized_nodes.inspect} ")
+    haml :authorize_results, :layout => false
+  end
+
+  # Bad verb usage. Should clean up at some point
+  post '/authorize/delete/:node' do
+    @logger.debug("Deleting #{params[:node]}")
+    @racecar.delete_node(params[:node])
+    @authorized_nodes = @racecar.authorized_nodes
+    haml :authorize_results, :layout => false
   end
 
   post '/discover/results' do
     @logger.debug("Calling discover_nodes with #{params[:collective]}")
+    puts "xhr: #{request.xhr?}"
     discover_nodes(params[:collective])
     haml :discovery_results, :layout => false
   end
@@ -183,6 +234,18 @@ class Jerry < Sinatra::Base
     @inventory = node_details(params[:node])
     @logger.debug("Model provided: #{@inventory.inspect}")
     haml :inventory_results, :layout => false
+  end
+
+  get '/run' do
+    haml :run
+  end
+
+  post '/run' do
+    @node = params[:node]
+    @collective = params[:collective]
+    @logger.debug("Run request for #{@node}@#{@collective}")
+    @node_run = run_node(@node, @collective)
+    haml :run_results, :layout => false
   end
 
   get '/run/:collective/:node' do

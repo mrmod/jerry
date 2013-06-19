@@ -6,7 +6,7 @@
     %ul
       %li
         %a{:title => "Start", :href => "/"} Start
-      - ['Authorize','Discover','Inventory'].each do |title|
+      - ['Authorize','Discover','Inventory', 'Run'].each do |title|
         %li
           %a{:title => title, :href => "/#{title.downcase}"}= title
 

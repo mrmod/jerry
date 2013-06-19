@@ -1,0 +1,12 @@
+%img{:id => 'spinner',:hidden => true, :src => '/img/spinner.gif'}
+- if @authorize_error
+  %div{:class => "danger label", :id => 'authorize-failure'}=@authorize_error[:message]
+- if @authorized_nodes.empty?
+  %h2 No authorized nodes
+- else
+  - @authorized_nodes.each do |node|
+    %div{:class => "row"}
+      %div{:class => "six columns"}
+        %a{:title => "#{node}", :href => "/authorize/#{node}"}=node
+      %div{:class => "two columns"}
+        %li{:class => "narrow primary btn label", :title => "delete_#{node}",:onclick => "delete_node(this);"} delete

@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <title>
-  File: Readme
+  File: README
   
     &mdash; Documentation by YARD 0.8.6.1
   
@@ -32,7 +32,7 @@
       <div id="menu">
   
     <a href="_index.html">Index</a> &raquo; 
-    <span class="title">File: Readme</span>
+    <span class="title">File: README</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -61,118 +61,81 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'>
-<h1>Puppet Control (name needs work)</h1>
+    <div id="content"><div id='filecontents'><h1>Puppet Control (name needs work)</h1>
 
-<p>Puppet Control allows an admin to</p>
-<ul><li>
-<p>Add nodes to a list of authorized nodes</p>
-</li><li>
-<p>Assign classes to nodes</p>
-</li><li>
-<p>Assign parameters to classes</p>
-</li><li>
-<p>Create node <b>roles</b></p>
-</li><li>
-<p>Search for nodes</p>
-</li><li>
-<p>Retrieve node inventory</p>
-</li><li>
-<p>Carry out Puppet runs on collections of nodes</p>
-</li></ul>
+<p>Puppet Control allows an admin to
+* Add nodes to a list of authorized nodes
+* Assign classes to nodes
+* Assign parameters to classes
+* Create node <em>roles</em>
+* Search for nodes
+* Retrieve node inventory
+* Carry out Puppet runs on collections of nodes</p>
 
-<p>Puppet Control provides the following roles</p>
-<dl class="rdoc-list"><dt>Observer</dt>
-<dd><ul><li>
-<p>Can see what curators have created</p>
-</li><li>
-<p>Can see the progress of tasks in progress</p>
-</li></ul>
-</dd><dt>Curator/Creator</dt>
-<dd><ul><li>
-<p>Creates or edits classifications</p>
-</li><li>
-<p>Can search inventories and for nodes</p>
-</li></ul>
-</dd><dt>Operator</dt>
-<dd><ul><li>
-<p>Can issue runs, search for nodes, or get inventory information</p>
-</li></ul>
-</dd><dt>Admin</dt>
-<dd><ul><li>
-<p><b>Curator</b> + <b>Operator</b></p>
-</li></ul>
-</dd></dl>
+<p>Puppet Control provides the following roles
+[Observer]
+  * Can see what curators have created
+  * Can see the progress of tasks in progress
+[Curator/Creator]
+  * Creates or edits classifications
+  * Can search inventories and for nodes
+[Operator]
+  * Can issue runs, search for nodes, or get inventory information
+[Admin]
+  * <em>Curator</em> + <em>Operator</em></p>
 
 <h1>What's missing</h1>
 
 <p>Reporting analysis tools are missing. Too much to do for a first revision</p>
 
 <h1>Feature priority</h1>
-<ol><li>
-<p>Authorize nodes</p>
-</li><li>
-<p>Search for nodes (mcollective ping)</p>
-</li><li>
-<p>Inventory nodes</p>
-</li></ol>
+
+<ol>
+<li>Authorize nodes</li>
+<li>Search for nodes (mcollective ping)</li>
+<li>Inventory nodes</li>
+</ol>
+
 
 <h1>Design guide</h1>
 
 <p>A user must login before doing anything. This is a single page action.</p>
 
-<p>The main screen displays a grid of options as N cubes. When a cube is
-clicked, we head to that administrative action.</p>
+<p>The main screen displays a grid of options as N cubes. When a cube is clicked, we head to that administrative action.</p>
 
 <h2>Common Elements</h2>
 
-<p>Any administrative action screen is topped with a flat bar of <b>Start</b>
-and then each available administrative action.</p>
-<dl class="rdoc-list"><dt>False Claims Warning</dt>
-<dd>
-<p>This will not be available in the first release</p>
-</dd></dl>
+<p>Any administrative action screen is topped with a flat bar of <em>Start</em> and then each available administrative action.</p>
+
+<p>[False Claims Warning]
+ This will not be available in the first release</p>
 
 <h2>Authorize Nodes</h2>
 
-<p>Authorize nodes presents a node addition form with a text field and a flat
-button <b>Add</b> in a cube on the left. On the right, a cube with recently
-added hosts is listed. A search bar tops this cube. On the right side of
-the cube are a tab for Sort with the top of the tab being ascending, the
-bottom being descending.</p>
-<dl class="rdoc-list"><dt>ToDo</dt>
-<dd><ul><li>
-<p>Nodes in the right cube should be deletable</p>
-</li></ul>
-</dd></dl>
+<p>Authorize nodes presents a node addition form with a text field and a flat button <em>Add</em> in a cube on the left. On the right, a cube with recently added hosts is listed. A search bar tops this cube. On the right side of the cube are a tab for Sort with the top of the tab being ascending, the bottom being descending.</p>
+
+<p>[ToDo]
+ * Nodes in the right cube should be deletable</p>
 
 <h2>Search for Nodes</h2>
 
-<p>Presents a cube with various common facts. Once a fact key is selected a
-text box for a value is presented in a second cube on the right with a
-<b>Search</b> flat button.</p>
+<p>Presents a cube with various common facts. Once a fact key is selected a text box for a value is presented in a second cube on the right with a <em>Search</em> flat button.</p>
 
-<p>A fact key called 'All' is available and is the default selection for
-discovering all nodes.</p>
+<p>A fact key called 'All' is available and is the default selection for discovering all nodes.</p>
 
-<p>The search results are ordered by discovery time into the right cube with
-the familiar ascending / descending tab model. Times are displayed as:</p>
-<ul><li>
-<p>somehost.com (23ms)</p>
-</li></ul>
-<dl class="rdoc-list"><dt>ToDo</dt>
-<dd></dd></dl>
-<ul><li>
-<p>Allow multiple fact keys and values to be specified</p>
-</li></ul>
+<p>The search results are ordered by discovery time into the right cube with the familiar ascending / descending tab model. Times are displayed as:
+* somehost.com (23ms)</p>
+
+<p>[ToDo]
+* Allow multiple fact keys and values to be specified</p>
 
 <h2>Inventory Nodes</h2>
 
-<pre class="code ruby"><code class="ruby">The familiar two cube model returns. The left cube allows a hostname to be specified with an *Inventory* flat button.</code></pre>
+<p>The familiar two cube model returns. The left cube allows a hostname to be specified with an <em>Inventory</em> flat button.</p>
 </div></div>
 
     <div id="footer">
-  Generated on Wed Jun 12 23:11:37 2013 by
+  Generated on Tue Jun 18 16:16:01 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

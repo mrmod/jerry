@@ -1,0 +1,13 @@
+%div{:class => "row", :id => "controls"}
+  %div{:class => "eight columns"}
+    %div{:class => "row"}
+      %ul{:class => "eight columns"}
+        %form{:name => "run-nodes", :id => "run-nodes", :remote => true, :action => "/run", :method => "post"}
+          %li{:class => "field"}
+            %input{:class => "text input", :placeholder => "collective", :name => "collective"}
+          %li{:class => "append field"}
+            %input{:class => "search input", :placeholder => "node", :name => "node"}
+            %span{:class => "metro normal adjoined primary btn", :name => 'run-submit', :id => 'run-submit'} find
+  %div{:class => "eight columns", :id => "view-results"}
+    %img{:id => 'spinner',:hidden => true, :src => '/img/spinner.gif'}
+
