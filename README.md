@@ -1,4 +1,5 @@
-# Puppet Control (name needs work)
+# Jerry
+Jerry was a race car driver. Never did win no checkered flags, but never did come in last.
 
 Puppet Control allows an admin to
 * Add nodes to a list of authorized nodes
