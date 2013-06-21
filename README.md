@@ -10,7 +10,7 @@ Jerry allows an admin to:
 * *Assign classes to nodes (pending)*
 * *Assign parameters to classes (pending)*
 * *Carry out Puppet runs on collections of nodes (pending)*
-* *Create node **roles** (pending)*
+* *Create node roles (pending)*
 
 ----
 
