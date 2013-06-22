@@ -140,7 +140,7 @@ class Jerry < Sinatra::Base
   set :haml, :format => :html5
   set :port => settings.port
 
-  DEFAULT_OPTIONS = ['--dt',settings.mco_settings['discover_time'], '-t' , settings.mco_settings['timeout']]
+  DEFAULT_OPTIONS = ['--dt',settings.mco_settings['discovery_time'].to_s, '-t' , settings.mco_settings['timeout'].to_s]
   DEFAULT_COLLECTIVE = settings.collective
   before do 
     @racecar = RacecarDriver.new(settings.whitelist)
@@ -214,7 +214,7 @@ class Jerry < Sinatra::Base
   end
   # Delete an authorized node
   # @todo Delete verb?
-  post '/authorize/delete/:node' do
+  delete '/authorize' do
     @logger.debug("Deleting #{params[:node]}")
     @racecar.delete_node(params[:node])
     @authorized_nodes = @racecar.authorized_nodes
@@ -226,6 +226,7 @@ class Jerry < Sinatra::Base
   end
   # Discover results
   post '/discover/results' do
+
     @logger.debug("Calling discover_nodes with #{params[:collective]}")
     discover_nodes(params[:collective])
     haml :discovery_results, :layout => false
@@ -243,12 +244,22 @@ class Jerry < Sinatra::Base
   end
   # Inventory a node
   post '/inventory' do
-    @inventory = node_details(params[:node])
+    if params[:node].empty?
+      @inventory = []
+    else
+      @inventory = node_details(params[:node])
+    end
     @logger.debug("Model provided: #{@inventory.inspect}")
     haml :inventory_results, :layout => false
   end
   # Run index
   get '/run' do
+    @node_options = {
+      "node" => {'checked' => true, 'placeholder' => 'host.site.com'},
+      "regex" => {'checked' => false, 'placeholder' => '/^web\d+\.site2\.com/'}, 
+      "fact" => {'checked' => false, 'placeholder' => 'fact=value'}, 
+      "options" => {'checked' => false, 'placeholder' => '--dt 30 -F llama="loose" runall 3'}
+    }
     haml :run
   end
 

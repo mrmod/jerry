@@ -1,7 +1,7 @@
-%img{:id => 'spinner',:hidden => true, :src => '/img/spinner.gif'}
+
 %div{:class => "row"}
   %div{:class => "eight columns"}
-    %h2="#{@node_run.responsesfrom.size} nodes with #{@node_run.failcount} failures in #{"%.2f" % (@node_run.totaltime * 1000)}ms"
+    %h3="#{@node_run.responsesfrom.size} nodes with #{@node_run.failcount} failures in #{"%.2f" % (@node_run.totaltime * 1000)}ms"
 %div{:class => "row"}
   %div{:class => "eight columns"}
     Responding nodes

@@ -6,8 +6,23 @@
           %li{:class => "field"}
             %input{:class => "text input", :placeholder => "collective", :name => "collective"}
           %li{:class => "append field"}
-            %input{:class => "search input", :placeholder => "node", :name => "node"}
+            %input{:class => "search input", :id => "search_input", :placeholder => "node", :name => "node"}
             %span{:class => "metro normal adjoined primary btn", :name => 'run-submit', :id => 'run-submit'} find
+          %li{:class => "field"}
+
+            - i = 0
+            - @node_options.each do |nopt,ndata|
+              %div{:class => "six columns"}
+                - div_class = ndata['checked'] ? "checked" : ""
+                - elem = "node_type#{i}"
+                %label{:class => "radio #{div_class}", :for => "#{elem}"}
+                  - if ndata['checked']
+                    %input{:checked => "checked", :type => "radio", :id => "#{elem}", :name => "node_type", :value => "#{nopt}"}
+                  - else
+                    %input{:type => "radio", :id => "#{elem}", :name => "node_type", :value => "#{nopt}"}
+                  %span
+                  = nopt.capitalize
+                %input{:type => "hidden", :id => "node_type#{i}ph", :value => "#{ndata['placeholder'].inspect}"}
+                - i+=1
   %div{:class => "eight columns", :id => "view-results"}
-    %img{:id => 'spinner',:hidden => true, :src => '/img/spinner.gif'}
 

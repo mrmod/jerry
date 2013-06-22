@@ -14,6 +14,6 @@ mco_settings:
 # Jerry's spit bucket
 logfile: jerry.log
 # Log level
-log_level: Logger::DEBUG
+log_level: 0
 
 

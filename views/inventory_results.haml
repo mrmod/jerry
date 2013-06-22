@@ -1,7 +1,7 @@
-%img{:id => 'spinner',:hidden => true, :src => '/img/spinner.gif'}
+
 - if @inventory.kind_of?Hash
   / refactor these stanzas
-  %h2= @inventory[:node][:sender]
+  %hh3= @inventory[:node][:sender]
   / collectives, main_collective is primary
   %div{:class => "row"}
     %li{:class => "secondary label"} collectives
@@ -39,5 +39,5 @@
         %li{:class => "light label"}=c
 
 - else
-  %div{:class => "six columns"}
-    %h2 No details found
+  %div{:class => "sixteen columns"}
+    %h3 No details found

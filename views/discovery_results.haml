@@ -1,10 +1,9 @@
-%img{:id => 'spinner',:hidden => true, :src => '/img/spinner.gif'}
 - if @node_count == 0
   %div{:class => "row"}
-    %h2= "No nodes found"
+    %h3= "No nodes found"
 - else
   %div{:class => "rows"}
-    %h2= "Found #{@node_count} nodes"
+    %h3= "Found #{@node_count} nodes"
   %div{:class => "row"}
     - @nodes.each do |node, rtime|
       - color_class = 'warning' if rtime >= 20.0
