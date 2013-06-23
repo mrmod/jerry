@@ -3,6 +3,17 @@
 port: 9876
 # Whitelist for authorizing nodes to
 whitelist: http://localhost:5984/whitelist
+# Couchbase instance (ENC datastore)host:port/bucket
+couchbase: 
+  target: localhost:8091/default
+  # Key to locate classified nodes
+  nodes_key: nodes
+  # Look for "\w+_hosts$" as groups of hosts with similar classifications
+  use_hosts_keys: true
+  # A key under nodes_key that defines available groupings
+  #list_of_host_lists: 
+# Puppet module root
+module_root: /Users/bruce/Documents/jerry/modules
 # MCollective configuration file path for the client
 mco_config: mcollective/client.cfg
 # Default collective

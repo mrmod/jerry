@@ -1,5 +1,7 @@
 %html
-  %link{:rel => 'stylesheet', :href => './bootstrap.min.css'}
+  %style
+    pre {background-color: #efefec;margin-top: 0px; margin-bottom: 0px;}
+    div.code {margin-top: -10px; margin-bottom: -10px;}
 
   %h1 Running multiple nodes
 
@@ -8,19 +10,19 @@
 
   %h2 Controller behavior
   %pre
-    %div
+    %div{:class => 'code'}
       it 'should handle a form providing classifying_data and search_type with an appropriate discovery result'
       it 'should treat the classyfing data a regex when the search_type is regex'
       it 'should treat the classifying data as a fact=value combo when the search_type is fact'
       it 'should treat the classifying data as a a space delimited set of ordered options when options is selected'
-    %div
+    %div{:class => 'code'}
       it 'should handle a form that is an array of existing class and parameter assignments'
-    %div
+    %div{:class => 'code'}
       it 'should respond to an "assign" class request with a view for assigning an existing class'
 
   %h2 Model requirements
   %pre
-    %div
+    %div{:class => 'code'}
       it 'should present the existing classes and parameters assigned to a node'
       it 'should accept updated to nodes models'
       it 'should know what classes are available and the parameters for them'
@@ -28,7 +30,7 @@
 
   %h2 View behavior
   %pre
-    %div
+    %div{:class => 'code'}
       it 'should have radio buttons for node, regex, and fact' 
       it 'should show "node options" when the node radio is selected' 
       it 'should show "node regex" when the regex radio is selected' 
@@ -43,18 +45,18 @@
 
   %h2 View behavior
   %pre
-    %div
+    %div{:class => 'code'}
       it 'should be accessible from any discovered node im /discovery' 
       it 'should provide a list of classes assigned on the left' 
-    %div
+    %div{:class => 'code'}
       it 'should provide a class search field above the assigned classes' 
       it 'should display the classes on the right from the search result' 
       it 'should not display assigned classes in the search result' 
-    %div
+    %div{:class => 'code'}
       it 'should allow any class, assigned or a search result, to be modified' 
       it 'should display the class parameters as input with defaults as placeholders' 
       it 'should have a form validator that assures elements without placeholders have values' 
-    %div
+    %div{:class => 'code'}
       it 'should populate the list of assigned classes when a class element is updated or added' 
 
 
