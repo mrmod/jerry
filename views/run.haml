@@ -15,7 +15,7 @@
               %div{:class => "six columns"}
                 - div_class = ndata['checked'] ? "checked" : ""
                 - elem = "node_type#{i}"
-                %label{:class => "radio #{div_class}", :for => "#{elem}"}
+                %label{:class => "radio #{div_class}", :for => "#{elem}", :id => "lbl_#{elem}"}
                   - if ndata['checked']
                     %input{:checked => "checked", :type => "radio", :id => "#{elem}", :name => "node_type", :value => "#{nopt}"}
                   - else

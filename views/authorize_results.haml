@@ -8,4 +8,4 @@
       %div{:class => "six columns"}
         %a{:title => "#{node}", :href => "/authorize/#{node}"}=node
       %div{:class => "two columns"}
-        %li{:class => "narrow primary btn label", :title => "delete_#{node}",:onclick => "delete_node(this);"} delete
+        %li{:class => "narrow primary btn label", :id => "delete_#{node}", :title => "delete_#{node}",:onclick => "delete_node(this);"} delete

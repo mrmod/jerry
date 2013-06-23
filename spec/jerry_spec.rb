@@ -89,6 +89,7 @@ describe RacecarDriver do
   end
 end
 
+# View/Controller testing
 describe 'Jerry to controller', :type => :feature do
 
   it 'should not explode' do
@@ -113,16 +114,102 @@ describe 'Jerry to controller', :type => :feature do
       end
     end
   end
-#   context 'doing puppet runs' do
-#     otptset = '--dt 10 -F myfact="myvalue"'
-#     optset_w_space = '--dt 10 -F myfact="big panda"'
-#     it 'should be able to run puppet for a single node' do
-#     end
-#     it 'should be able to run puppet given a node regex' do
-#     end
-#     it 'should be able to run puppet given a fact and a value' do
-#     end
-#     it 'should be able to run puppet given a set of space delimited options' do
-#     end
-#   end  
 end
+
+# /discover
+describe 'Finding nodes in a collective', :type => :feature do
+  it 'should let a user discover all nodes without putting in any input',:js => true do
+    visit '/discover'
+    find('#discover-submit').click
+    page.should have_content('loading...')
+  end
+end
+
+# /inventory
+describe 'Inventory a node in a collective', :type => :feature do
+  it 'should let a user inventory a specific node', :js => true do
+    visit '/inventory'
+    # fill_in 'node', :with => 'node.mock.com'
+    find('#inventory-submit').click
+    page.should have_content('No details found')
+  end
+end
+
+# /authorize
+describe 'Authorize a node in a collective', :type => :feature do
+  it 'should display the added node with an option to delete', :js => true do
+    visit '/authorize'
+    fill_in('node', :with => 'a.b.com')
+    find('#authorize-submit').click
+    page.should have_content('a.b.com delete')
+  end
+  it 'should be able to delete a node that exists', :js => true do
+    pending
+    visit '/authorize'
+    fill_in('node', :with => 'a.b.com')
+    find('#authorize-submit').click
+    find('#delete_a.b.com').click
+    page.should have_content('No authorized nodes')
+  end
+end
+
+# /run
+describe 'Run Puppet given a specific target style', :type => :feature do
+  # Little bit of element navigation weirdness. This works in hand testing
+  it 'should update the placeholder value with "host.site.com" when radio:node is active', :js => true do
+    visit '/run'
+    si_ph = '"host.site.com"'
+    find('#lbl_node_type0').click
+    # si_ph = find('#node_type0ph').value
+    find('#search_input')[:placeholder].should eql(si_ph)
+  end
+  it 'should update the placeholder value with "/^web\d+\.site2\.com/" when radio:regex is active', :js => true do
+    visit '/run'
+    si_ph = '"/^web\\\\d+\\\\.site2\\\\.com/"'
+    find('#lbl_node_type1').click
+    find('#search_input')[:placeholder].should eql(si_ph)
+  end
+  it 'should update the placeholder value with "fact=value" when radio:fact is active', :js => true do
+    visit '/run'
+    si_ph = '"fact=value"'
+    find('#lbl_node_type2').click
+    find('#search_input')[:placeholder].should eql(si_ph)
+  end  
+  it 'should update the placeholder value with "-- dt 30 -F llama=\"loose\" runall 3" when radio:options is active', :js => true do
+    visit '/run'
+    si_ph = '"--dt 30 -F llama=\"loose\" runall 3"'
+    find('#lbl_node_type3').click
+    find('#search_input')[:placeholder].should eql(si_ph)
+  end
+end
+
+# /classify
+# This isn't stubbed out yet
+describe 'Classify a node marlin.mock.com', :type => :feature do
+  it 'should display the current classes for the node', :js => true do
+    pending
+    visit '/classify'
+    fill_in('node', :with => 'marlin.mock.com')
+    find('#classify-submit').click
+    page.should have_content('default')
+  end
+  it 'should display the available modules excluding ones assigned', :js => true do
+    pending
+    visit '/classify'
+    fill_in('node', :with => 'marlin.mock.com')
+    find('#classify-submit').click
+    page.should have_content('anotherclass')
+  end
+  it 'should bring up a module selected for assignent with input fields for each parameter, if available',:js => true do
+    pending
+    visit '/classify'
+    fill_in('node', :with => 'marlin.mock.com')
+    find('#classify-submit').click
+    # page.should have_content('anotherclass')
+    find('#class_anotherclass').click
+    page.should have_content('edit anotherclass')
+    find_field('#param_msg').visible?.should be_true
+    find_field('#param_location').visible?.should be_true
+  end
+end
+

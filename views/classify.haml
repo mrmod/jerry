@@ -1,0 +1,14 @@
+%div{:class => "row", :id => 'controls'}
+  %div{:class => "eight columns"}
+    %div{:class => "row"}
+      %ul{:class => "eight columns"}
+        %li{:class => "append field"}
+          %form{:name => "classify-node", :id => "classify-node", :action => "/classify", :method => "post"}
+            %input{:class => "search input", :placeholder => "Node to add", :id => "node", :name => "node"}
+            %span{:class => "metro normal adjoined primary btn", :name => 'classify-submit', :id => 'classify-submit'} add
+    / Element inventory results
+    %div{:class => "row"}
+      %div{:class => "eight columns", :id => 'view-results'}
+  %div{:class => "eight columns", :id => "modify-classes"}
+
+
