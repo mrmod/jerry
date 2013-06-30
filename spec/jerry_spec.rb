@@ -200,6 +200,13 @@ describe 'Classify a node marlin.mock.com', :type => :feature do
     find('#classify-submit').click
     page.should have_content('anotherclass')
   end
+  it 'should display a delete/keep modal when an existing class assignment is clicked', :js => true do
+    pending
+    visit '/classify'
+    fill_in('node',:with => 'marlin.mock.com')
+    find('#classify-submit').click
+    find('#eclass_default').click
+  end
   it 'should bring up a module selected for assignent with input fields for each parameter, if available',:js => true do
     pending
     visit '/classify'

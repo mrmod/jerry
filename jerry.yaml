@@ -1,6 +1,10 @@
 ---
 # Port to run Jerry on
 port: 9876
+# Jerry's spit bucket
+logfile: jerry.log
+# Log level
+log_level: 3
 # Whitelist for authorizing nodes to
 whitelist: http://localhost:5984/whitelist
 # Couchbase instance (ENC datastore)host:port/bucket
@@ -12,19 +16,16 @@ couchbase:
   use_hosts_keys: true
   # A key under nodes_key that defines available groupings
   #list_of_host_lists: 
-# Puppet module root
-module_root: /Users/bruce/Documents/jerry/modules
-# MCollective configuration file path for the client
-mco_config: mcollective/client.cfg
-# Default collective
-collective: mcollective
-# Default mco settings
-mco_settings:
-  discovery_time: 5
-  timeout: 5
-# Jerry's spit bucket
-logfile: jerry.log
-# Log level
-log_level: 0
-
+# Puppet configuration
+puppet:
+  module_root: /Users/bruce/Documents/jerry/modules
+# MCollective configuration
+mcollective:
+  config: mcollective/client.cfg
+  # Default collective
+  collective: mcollective
+  # Default mco settings
+  settings:
+    discovery_time: 5
+    timeout: 5
 

@@ -140,11 +140,13 @@ class Jerry < Sinatra::Base
   set :haml, :format => :html5
   set :port => settings.port
 
-  DEFAULT_OPTIONS = ['--dt',settings.mco_settings['discovery_time'].to_s, '-t' , settings.mco_settings['timeout'].to_s]
-  DEFAULT_COLLECTIVE = settings.collective
+  DEFAULT_OPTIONS = [
+    '--dt',settings.mcollective['settings']['discovery_time'].to_s, 
+    '-t' , settings.mcollective['settings']['timeout'].to_s]
+  DEFAULT_COLLECTIVE = settings.mcollective['collective']
   before do 
     @racecar = RacecarDriver.new(settings.whitelist)
-    @mco_config = settings.mco_config
+    @mco_config = settings.mcollective['config']
     @logger = Logger.new(settings.logfile)
     @logger.level = settings.log_level
   end
@@ -289,6 +291,21 @@ class Jerry < Sinatra::Base
     @logger.debug("Run request for #{@node}@#{@collective}")
     @node_run = run_node(@node, @collective)
     haml :run_results
+  end
+
+  # Node classification
+  get '/classify' do
+    haml :classify
+  end
+  # Get the current classification for a node
+  post '/classify' do
+    @node = params[:node]
+    if @node.empty?
+      haml :classify
+      return
+    end
+    @inventory = node_details(params[:node])
+    haml :classify_results, :layout => false
   end
 
 	run! if $0 == app_file
